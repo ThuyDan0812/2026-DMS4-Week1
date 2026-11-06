@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171512">
+<title>HANKO-BAKA — Doodle Stamp Maker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#171512;--panel:#211e19;--panel2:#2b261f;--line:#3b342b;--text:#f4eee3;--muted:#b4a895;--red:#d92b27;--red2:#a51e1b;--cream:#fdfbf7;--green:#8ca87a;--radius:16px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#30271f 0,#171512 55%);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;user-select:none}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #e7a59d;outline-offset:3px}.wrap{max-width:1200px;margin:auto;padding:26px 20px 60px}.top{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:26px}.brand{display:flex;align-items:center;gap:14px}.seal{display:grid;place-items:center;width:54px;height:54px;border:3px solid var(--red);color:var(--red);font:900 25px 'Noto Serif JP',serif;transform:rotate(-4deg);border-radius:7px}.eyebrow{font:500 11px 'DM Mono',monospace;letter-spacing:.18em;color:#d17a6c;text-transform:uppercase}.brand h1{margin:3px 0;font-size:clamp(25px,4vw,37px);letter-spacing:-.06em}.brand p{margin:0;color:var(--muted);font-size:13px}.langs{display:flex;gap:5px;padding:5px;background:var(--panel);border:1px solid var(--line);border-radius:99px}.lang-btn{border:0;background:transparent;color:var(--muted);padding:8px 12px;border-radius:99px;font-weight:700;font-size:12px}.lang-btn.active{background:var(--red);color:white}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:18px;align-items:start}.panel{background:linear-gradient(145deg,#24201b,#1e1b17);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 16px 38px #0002}.panel-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.panel-head h2{font-size:15px;line-height:1.4;margin:0;font-weight:800}.panel-head p{font-size:12px;color:var(--muted);margin:6px 0 0}.step{font:500 11px 'DM Mono',monospace;color:#d17a6c;white-space:nowrap}.section{padding:18px 20px}.block-label{display:block;color:var(--muted);font:500 11px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}.preset-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.stencil-btn{background:#2a251f;border:1px solid #40372d;color:#e9dfd1;border-radius:10px;padding:10px 4px 8px;min-height:70px;font-size:11px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:5px}.stencil-btn .emoji{font-size:23px}.stencil-btn.active,.stencil-btn:hover{border-color:var(--red);background:#39231f;color:#fff}.trace-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px;padding:12px;border-radius:10px;background:#2b261f;font-size:12px;color:var(--muted)}.switch{accent-color:var(--red);width:17px;height:17px}.canvas-wrap{position:relative;width:min(100%,330px);aspect-ratio:1;margin:0 auto;background:#f6f0e3;border:9px solid #393027;border-radius:12px;box-shadow:inset 0 0 0 1px #bcae96,0 12px 22px #0003;overflow:hidden}.canvas-wrap canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}.canvas-wrap .canvas-paper{background:radial-gradient(circle,#fdfbf7,#e9dfce)}.tool-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:15px 0 0}.btn{border:1px solid var(--line);border-radius:10px;background:#302920;color:var(--text);padding:10px 13px;font-size:12px;font-weight:700}.btn.active{background:var(--red);border-color:var(--red);color:white}.btn.primary{background:var(--red);border-color:var(--red);color:white}.btn:hover{filter:brightness(1.12)}.controls{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:16px}.control{min-width:0}.control label{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:11px;margin-bottom:8px}.control strong{color:var(--text);font:500 11px 'DM Mono',monospace}.control input[type=range]{width:100%;accent-color:var(--red)}.select-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}.field label{display:block;font-size:11px;color:var(--muted);margin-bottom:7px}.field select,.field input{width:100%;background:#2b261f;border:1px solid var(--line);border-radius:9px;color:var(--text);padding:10px;font-size:12px}.actions{margin-top:15px;display:grid;gap:8px}.actions .btn{width:100%;padding:12px}.hint{font-size:11px;color:var(--muted);line-height:1.5;margin:12px 0 0}.ink-row{display:flex;align-items:center;gap:13px;padding:16px 20px;border-bottom:1px solid var(--line)}.ink-pad{flex:0 0 74px;aspect-ratio:1;border:3px solid #79211c;border-radius:50%;background:radial-gradient(circle at 35% 28%,#e4493e,#a51e1b 70%);color:#fff;box-shadow:inset 0 0 0 4px #d96a60,0 5px 13px #0003;font:700 10px 'DM Mono',monospace;line-height:1.4}.ink-copy{font-size:12px;color:var(--muted);line-height:1.5}.ink-copy strong{display:block;color:#f1b0a5;font-size:13px;margin-bottom:3px}.doc-area{padding:17px 20px}.doc-title{font-size:11px;letter-spacing:.09em;color:var(--muted);margin:0 0 10px;font-family:'DM Mono',monospace}.doc-canvas-wrap{width:100%;max-width:720px;margin:auto;background:#fdfbf7;border-radius:9px;border:5px solid #393027;overflow:hidden;box-shadow:0 10px 25px #0003}.doc-canvas-wrap canvas{display:block;width:100%;height:auto;touch-action:manipulation;cursor:crosshair}.doc-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.doc-actions .btn{flex:1}.upload-label{display:inline-flex;align-items:center;justify-content:center}.upload-label input{display:none}.foot{color:#827665;text-align:center;font:10px 'DM Mono',monospace;margin-top:22px;letter-spacing:.08em}.shake-screen{animation:shake .16s ease}@keyframes shake{0%,100%{transform:translate(0)}25%{transform:translate(-2px,1px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-1px,-1px)}}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.langs{align-self:flex-start}.canvas-wrap{width:min(100%,300px)}}@media(max-width:420px){.wrap{padding:15px 10px 35px}.section,.panel-head,.doc-area{padding:15px}.preset-grid{grid-template-columns:repeat(4,1fr)}.stencil-btn{font-size:10px}.controls,.select-row{gap:9px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand"><div class="seal">判</div><div><div class="eyebrow">Doodle → Vermilion seal</div><h1>HANKO-BAKA <span style="color:var(--red)">印鑑</span></h1><p data-i18n="appSubtitle">Turn Goofy Doodles Into Traditional Vermilion Stamps in 10 Seconds</p></div></div>
+  <nav class="langs" aria-label="Language"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="vi">VI</button><button class="lang-btn" data-lang="ja">日本語</button></nav>
+</header>
+<div class="layout">
+<section class="panel">
+ <div class="panel-head"><div><h2 data-i18n="station1Title">1. CARVE STAMP & DIP SHUNIKU INK (朱肉)</h2><p data-i18n="carvePrompt">Draw or trace inside the carving block:</p></div><span class="step">STATION 01</span></div>
+ <div class="section">
+  <span class="block-label" data-i18n="presetTitle">🎨 Goofy Templates & Trace Stencils:</span>
+  <div class="preset-grid">
+   <button class="stencil-btn active" data-template="cryingCat"><span class="emoji">🐱</span><span data-i18n="p_cryingCat">Crying Cat</span></button>
+   <button class="stencil-btn" data-template="blepCat"><span class="emoji">😼</span><span data-i18n="p_blepCat">Blep Cat</span></button>
+   <button class="stencil-btn" data-template="sillyAlien"><span class="emoji">👽</span><span data-i18n="p_alien">Silly Alien</span></button>
+   <button class="stencil-btn" data-template="shibaDog"><span class="emoji">🐕</span><span data-i18n="p_shiba">Shiba Doge</span></button>
+   <button class="stencil-btn" data-template="derpyFrog"><span class="emoji">🐸</span><span data-i18n="p_frog">Derpy Frog</span></button>
+   <button class="stencil-btn" data-template="peaceBunny"><span class="emoji">🐰</span><span data-i18n="p_bunny">Peace Bunny</span></button>
+   <button class="stencil-btn" data-template="knifeDuck"><span class="emoji">🦆</span><span data-i18n="p_duck">Knife Duck</span></button>
+   <button class="stencil-btn" data-template="driedFish"><span class="emoji">🐟</span><span data-i18n="p_fish">Dried Fish</span></button>
+  </div>
+  <label class="trace-row"><span data-i18n="traceModeLabel">✏️ Trace Stencil Mode (Ghost Guide)</span><input class="switch" id="traceModeCheckbox" type="checkbox" checked></label>
+  <div class="canvas-wrap" style="margin-top:17px"><canvas id="stencilCanvas" width="230" height="230" aria-hidden="true"></canvas><canvas id="carveCanvas" width="230" height="230" aria-label="Draw your stamp"></canvas></div>
+  <div class="tool-row"><button class="btn active" id="toolCarveBtn" data-i18n="toolCarve">✒️ Carve</button><button class="btn" id="toolEraserBtn" data-i18n="toolErase">🩹 Eraser</button><button class="btn" id="toolUndoBtn" data-i18n="toolUndo">↩️ Undo</button><button class="btn" id="toolClearBtn" data-i18n="toolClear">🗑️</button></div>
+  <div class="controls">
+   <div class="control"><label><span data-i18n="gritLabel">Stone Grit / Ink Wear</span><strong id="gritVal">14</strong></label><input id="gritRange" type="range" min="0" max="40" value="14"></div>
+   <div class="control"><label><span data-i18n="brushLabel">Brush / Chisel Size</span><strong id="brushVal">6</strong></label><input id="brushRange" type="range" min="2" max="18" value="6"></div>
+  </div>
+  <div class="select-row">
+   <div class="field"><label data-i18n="shapeLabel">Stone Block Shape:</label><select id="stampShape"><option value="circle" data-i18n="shapeCircle">Circle (Maru-in)</option><option value="square" data-i18n="shapeSquare">Clan Square (Kaku-in)</option><option value="oval" data-i18n="shapeOval">Classic Oval (Koban-in)</option></select></div>
+   <div class="field"><label data-i18n="textLabel">Engraved Text (Max 10 chars):</label><input id="stampText" maxlength="10" value="APPROVED"></div>
+  </div>
+  <div class="actions"><button class="btn primary" id="downloadStampPngBtn" data-i18n="downloadStickerBtn">📥 DOWNLOAD TRANSPARENT STAMP (.PNG) AS STICKER</button></div>
+ </div>
+</section>
+<section class="panel">
+ <div class="panel-head"><div><h2 data-i18n="station2Title">2. CLICK PAPER / PHOTO TO SLAM STAMP "THUMP!"</h2><p data-i18n="docSub">Click anywhere on this Washi sheet (or upload a meme) to slam your red stamp!</p></div><span class="step">STATION 02</span></div>
+ <div class="ink-row"><button class="ink-pad" id="shunikuPad"><span id="shunikuLabel">DIP INK<br>SHUNIKU<br>(朱肉)</span></button><div class="ink-copy"><strong id="inkStatus">🔴 Ink Level: 100% (Ready to stamp!)</strong><span data-i18n="shunikuHint">Stamping depletes ink. Click the Shuniku pad to refill!</span></div></div>
+ <div class="section" style="padding-bottom:0"><div class="control"><label><span data-i18n="stampSizeLabel">Stamp Press Size</span><strong id="stampSizeVal">135</strong></label><input id="stampSizeRange" type="range" min="65" max="230" value="135"></div></div>
+ <div class="doc-area"><p class="doc-title" data-i18n="docHeader">CERTIFICATE OF GOOFY AUTHENTICITY (証明書)</p><div class="doc-canvas-wrap"><canvas id="documentCanvas" width="700" height="540" aria-label="Washi paper. Click to place stamp."></canvas></div>
+ <div class="doc-actions"><label class="btn upload-label" data-i18n="uploadBtn">🖼️ Upload Photo / Meme<input type="file" id="bgUploadInput" accept="image/*"></label><button class="btn" id="undoStampBtn" data-i18n="undoStampBtn">↩️ Undo Stamp</button><button class="btn" id="resetDocBtn" data-i18n="resetDocBtn">📄 Fresh Washi Paper</button><button class="btn primary" id="downloadDocBtn" data-i18n="downloadDocBtn">💾 Save Stamped Image (.PNG)</button></div>
+ <p class="hint" data-i18n="shunikuHint">Stamping depletes ink. Click the Shuniku pad to refill!</p></div>
+</section>
+</div>
+<footer class="foot">HANKO-BAKA · MAKE SOMETHING RIDICULOUSLY OFFICIAL</footer>
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>
